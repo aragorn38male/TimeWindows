@@ -1,2 +1,3 @@
 # TimeWindows
 A small clock for Windows
+...Using AutoHotkey...
