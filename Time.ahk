@@ -1,10 +1,15 @@
 ﻿#Requires AutoHotkey v2.0
+#SingleInstance Off
+
+SetBatchLines := -1
+
 clockGui := Gui("+AlwaysOnTop -Caption")
 
 clockGui.Title := "Time"
 clockGui.SetFont("s15 w700")
 clockGui.BackColor := "Black"
 clockGui.Add("Text", "w100 Center cLime vtime")
+clockGui["time"].Text := FormatTime(A_Now, "HH:mm:ss")
 clockGui.Show("AutoSize Center")
 
 SetTimer(UpdateClock, 1000)
