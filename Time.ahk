@@ -35,4 +35,13 @@ DragWindow(wParam, lParam, msg, hwnd) {
     PostMessage(0xA1, 2,,, hwnd)
 }
 
-Esc::ExitApp
+
+OnMessage(0x205, WM_RBUTTONUP) ; WM_RBUTTONUP
+WM_RBUTTONUP(wParam, lParam, msg, hwnd) {
+    global clockGui
+    if hwnd = clockGui.Hwnd {
+        Send("{Blind}{Ctrl Up}{Alt Up}{Shift Up}{LWin Up}{RWin Up}")
+        ExitApp
+        return true ; suppress right-click
+    }
+}
